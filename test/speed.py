@@ -37,7 +37,7 @@ def initPCA9685():
 def setPCA9685Duty(channel, on, off):
   channelpos = 0x6 + 4*channel
   try:
-    bus.write_i2c_block_data(address_pca9685, channelpos, [on&0xFF, on>>8, off&$
+    bus.write_i2c_block_data(address_pca9685, channelpos, [on&0xFF, on>>8, off&0xFF, off>>8]
   except IOError:
     pass
 
