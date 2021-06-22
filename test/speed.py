@@ -37,7 +37,7 @@ def initPCA9685():
 def setPCA9685Duty(channel, on, off):
   channelpos = 0x6 + 4*channel
   try:
-    bus.write_i2c_block_data(address_pca9685, channelpos, [on&0xFF, on>>8, off&0xFF, off>>8]
+    bus.write_i2c_block_data(address_pca9685, channelpos, [on&0xFF, on>>8, off&0xFF, off>>8])
   except IOError:
     pass
 
@@ -60,21 +60,21 @@ def moveServo (id, degree, adj, max, min, speed, now):
     sleep(0.004 * steps *(speed))
   return (now)
 
-def moveHead (degree, speed=1):
+def moveHead (degree, speed):
   adj = 0       # Head servo adjustment
   max = 490     # Downward limit
   min = 110     # Upward limit
   global headNow
   headNow = moveServo (2, degree, adj, max, min, speed, headNow)
 
-def moveBack (degree, speed=1):
+def moveBack (degree, speed):
   adj = 0       # Back servo adjustment
   max = 490     # AntiClockwise limit
   min = 110     # Clockwise limit
   global backNow
   backNow = moveServo (1, degree, adj, max, min, speed, backNow)
 
-def moveStage (degree, speed=1):
+def moveStage (degree, speed):
   adj = 0      # Stage servo adjustment
   max = 490    # AntiClockWise limit
   min = 110    # Clocwise limit
