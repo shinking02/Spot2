@@ -13,7 +13,7 @@ def moveServo(id, degree, speed):
     if speed == 0:
         pwm.set_pwm(id, 0, adj_list[id] + degree)
     elif degree >= 0 and speed != 0:
-        for i in range(degree = 1):
+        for i in range(degree + 1):
             pwm.set_pwm(id, 0, adj_list[id] + i)
             time.sleep(0.001 * speed)
     elif degree < 0 and speed != 0:
