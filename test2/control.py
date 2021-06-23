@@ -18,4 +18,3 @@ def moveServo(id, degree, speed):
         #
     else:
         print('speedの引数が範囲外です')
-        
