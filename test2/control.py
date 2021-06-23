@@ -10,4 +10,6 @@ pwm.set_pwm_freq(50)
 
 def moveServo(id, degree, speed):
     adj_list = [295, 305, 380, 280, 320, 260, 300, 285, 100, 170, 130, 500]
-    
+    if speed == 0:
+        pwm.set_pwm(id, 0, adj_list[id] + degree)
+        
