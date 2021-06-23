@@ -65,18 +65,4 @@ def moveHead (degree, speed):
   max = 490     # Downward limit
   min = 110     # Upward limit
   global headNow
-  headNow = moveServo (2, degree, adj, max, min, speed, headNow)
-
-def moveBack (degree, speed):
-  adj = 0       # Back servo adjustment
-  max = 490     # AntiClockwise limit
-  min = 110     # Clockwise limit
-  global backNow
-  backNow = moveServo (1, degree, adj, max, min, speed, backNow)
-
-def moveStage (degree, speed):
-  adj = 0      # Stage servo adjustment
-  max = 490    # AntiClockWise limit
-  min = 110    # Clocwise limit
-  global stageNow
-  stageNow = moveServo (0, degree, adj, max, min, speed,stageNow)
+  headNow = moveServo (0, degree, adj, max, min, speed, headNow)
