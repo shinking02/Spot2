@@ -1,19 +1,15 @@
 from control import moveServo
 from time import sleep
 import neutral
+import threading
 
 neutral.n()
 sleep(2)
-moveServo(0, -100, 100)
-moveServo(1, -100, 100)
-moveServo(2, -100, 100)
-moveServo(3, -100, 100)
-moveServo(4, -100, 100)
-moveServo(5, -100, 100)
-moveServo(6, -100, 100)
-moveServo(7, -100, 100)
-moveServo(8, -100, 100)
-moveServo(9, -100, 100)
-moveServo(10, -100, 100)
-moveServo(11, -100, 100)
+
+if __name__ == "__main__":
+    thread_1 = threading.Thread(target=moveServo(0, 100, 200))
+    thread_2 = threading.Thread(target=moveServo(0, 100, 200))
+
+    thread_1.start()
+    thread_2.start()
 
