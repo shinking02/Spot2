@@ -45,5 +45,5 @@ def set_nt():
     moveServo(0, -200, 0)
     moveServo(1, -200, 0)
     moveServo(2, 200, 0)
-    moveServo(0, 200, 0)
+    moveServo(3, 200, 0)
 #def forward():
