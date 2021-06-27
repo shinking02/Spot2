@@ -26,3 +26,4 @@ def moveServo(id, degree, speed):
             pwm.set_pwm(id, 0, now[id] - 1)
             now[id] -= 1
             sleep(0.0001 * speed)
+    return(0.0001 * sleep)
