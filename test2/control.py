@@ -3,20 +3,26 @@
 
 import RPi.GPIO as GPIO
 import Adafruit_PCA9685
-import time
+from time import sleep
 
 pwm=Adafruit_PCA9685.PCA9685()
 pwm.set_pwm_freq(50)
 
+#起動時ニュートラル移行必須
+
+now = [295, 305, 380, 280, 320, 260, 300, 285, 100, 170, 130, 500]
+adj_list = [295, 305, 380, 280, 320, 260, 300, 285, 100, 170, 130, 500]
+
 def moveServo(id, degree, speed):
-    adj_list = [295, 305, 380, 280, 320, 260, 300, 285, 100, 170, 130, 500]
     if speed == 0:
         pwm.set_pwm(id, 0, adj_list[id] + degree)
-    elif degree >= 0 and speed != 0:
-        for i in range(degree + 1):
-            pwm.set_pwm(id, 0, adj_list[id] + i)
-            time.sleep(0.001 * speed)
-    elif degree < 0 and speed != 0:
-        for i in range(abs(degree)):
-            pwm.set_pwm(id, 0, adj_list[id] -i)
-            time.sleep(0.001 * speed)
+        now[id] += degree
+    while(now[id] != adj_list[id] + degree):
+        if now < adj_list[id] + degree:
+            pwm.set_pwm(id, 0, now[id] + 1)
+            now[id] += 1
+            sleep(0.0001 * speed)
+        else:
+            pwm.set_pwm(id, 0, now[id] - 1)
+            now[id] -= 1
+            sleep(0.0001 * speed)
