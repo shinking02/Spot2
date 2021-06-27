@@ -41,5 +41,6 @@ def moveServos(id, degree, speed):
             now[id] -= 1
             sleep(0.0001 * speed)
 
-def neutral():
-def forward():
+def set_nt():
+    moveServo(0, 30, 0)
+#def forward():
