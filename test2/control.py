@@ -42,8 +42,16 @@ def moveServos(id, degree, speed):
             sleep(0.0001 * speed)
 
 def set_nt():
-    moveServo(0, -200, 0)
-    moveServo(1, -200, 0)
-    moveServo(2, 200, 0)
-    moveServo(3, 200, 0)
+    moveServo(0, 0, 0)
+    moveServo(1, 0, 0)
+    moveServo(2, 0, 0)
+    moveServo(3, 0, 0)
+    moveServo(4, 0, 0)
+    moveServo(5, 0, 0)
+    moveServo(6, 0, 0)
+    moveServo(7, 0, 0)
+    moveServo(8, 0, 0)
+    moveServo(9, 0, 0)
+    moveServo(10, 0, 0)
+    moveServo(11, 0, 0)
 #def forward():
