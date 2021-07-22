@@ -57,4 +57,9 @@ def set_nt():
     sleep(0.2)
     moveServo(10, 0, 0)
     moveServo(11, 0, 0)
-#def forward():
+def forward():
+    moveServo(5, 50, 0)
+    moveServo(9, 50, 0)
+    sleep(0.1)
+    moveServo(5, 0, 0)
+    moveServo(9, 0, 0)
