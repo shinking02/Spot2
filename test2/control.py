@@ -10,8 +10,8 @@ pwm.set_pwm_freq(50)
 
 #起動時ニュートラル移行必須
 
-now = [295, 305, 380, 258, 200, 380, 200, 395, 200, 70, 230, 400]
-adj_list = [295, 305, 380, 258, 200, 380, 200, 395, 200, 70, 230, 400]
+now = [295, 305, 380, 258, 200, 380, 200, 395, 200, 380, 230, 400]
+adj_list = [295, 305, 380, 258, 200, 380, 200, 395, 200, 380, 230, 400]
 
 def moveServo(id, degree, speed):
     if speed == 0:
@@ -57,23 +57,28 @@ def quick_sleep():
 
 def set_nt():
     while(now[4] != adj_list[4]):
-        moveServo(4, -1, 0)
-        moveServo(5, 1, 0)
-        moveServo(8, 1, 0)
-        moveServo(9, -1, 0)
-        sleep(1)
-        print(now[4],adj_list[4])
-'''
-    while(now[6] - adj_list[6] != 0):
-        moveServo(6, -1, 0)
-        moveServo(7, 1, 0)
-        moveServo(10, 1, 0)
-        moveServo(11, -1, 0)
-        sleep(0.2)
-    while(now[8] - adj_list[8] != 0):
-        moveServo(8, 1, 0)
-        moveServo(9, -1, 0)
-        moveServo(10, 1, 0)
-        moveServo(11, -1, 0)
-        sleep(0.2)
-'''
+        pwm.set_pwm(4, 0, now[4] - 1)
+        pwm.set_pwm(5, 0, now[5] + 1)
+        now[4] -= 1
+        now[5] += 1
+        sleep(0.1)
+    while(now[6] != adj_list[6]):
+        pwm.set_pwm(6, 0, now[6] - 1)
+        pwm.set_pwm(7, 0, now[7] + 1)
+        now[6] -= 1
+        now[7] += 1
+        sleep(0.05)
+    while(now[10] != adj_list[10]):
+        pwm.set_pwm(10, 0, now[10] + 1)
+        pwm.set_pwm(11, 0, now[11] - 1)
+        now[10] += 1
+        now[11] -= 1
+        sleep(0.01)
+    while(now[8] != adj_list[8]):
+        pwm.set_pwm(8, 0, now[8] + 1)
+        pwm.set_pwm(9, 0, now[9] - 1)
+        now[8] += 1
+        now[9] -= 1
+        sleep(0.005)
+
+    def set_sleep():
