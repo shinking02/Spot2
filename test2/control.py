@@ -55,5 +55,25 @@ def quick_sleep():
     moveServo(10, -120, 0)
     moveServo(11, 120, 0)
 
-
-#def set_nt():
+def set_nt():
+    while(now[4] != adj_list[4]):
+        moveServo(4, -1, 0)
+        moveServo(5, 1, 0)
+        moveServo(8, 1, 0)
+        moveServo(9, -1, 0)
+        sleep(1)
+        print(now[4],adj_list[4])
+'''
+    while(now[6] - adj_list[6] != 0):
+        moveServo(6, -1, 0)
+        moveServo(7, 1, 0)
+        moveServo(10, 1, 0)
+        moveServo(11, -1, 0)
+        sleep(0.2)
+    while(now[8] - adj_list[8] != 0):
+        moveServo(8, 1, 0)
+        moveServo(9, -1, 0)
+        moveServo(10, 1, 0)
+        moveServo(11, -1, 0)
+        sleep(0.2)
+'''
