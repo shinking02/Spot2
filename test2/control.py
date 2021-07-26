@@ -29,7 +29,7 @@ def moveServo(id, degree, speed):
             sleep(0.0001 * speed)
 
 def quick_sleep():
-    for i in range(11):
+    for i in range(12):
         moveServo(i, sleep_list[i], 0)
 
 def set_nt():
