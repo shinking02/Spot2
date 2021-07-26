@@ -30,7 +30,8 @@ def moveServo(id, degree, speed):
 
 def quick_sleep():
     for i in range(12):
-        moveServo(i, sleep_list[i], 0)
+        pwm.set_pwm(i, 0, sleep_list[i])
+        now[i] = sleep_list[i]
 
 def set_nt():
     while(now[4] != adj_list[4]):
