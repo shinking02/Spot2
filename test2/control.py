@@ -59,4 +59,26 @@ def set_nt():
         now[9] -= 1
         sleep(0.005)
 
-#def set_sleep():
+def set_sleep():
+    while(now[4] != sleep_list[4]):
+        pwm.set_pwm(4, 0, now[4] + 1)
+        pwm.set_pwm(5, 0, now[5] - 1)
+        now[4] += 1
+        now[5] -= 1
+        sleep(0.1)
+    while(now[6] != sleep_list[6]):
+        pwm.set_pwm(6, 0, now[6] + 1)
+        pwm.set_pwm(7, 0, now[7] - 1)
+        now[6] += 1
+        now[7] -= 1
+        sleep(0.05)
+    while(now[10] != sleep_list[10]):
+        pwm.set_pwm(8, 0, now[8] - 1)
+        pwm.set_pwm(9, 0, now[9] + 1)
+        pwm.set_pwm(10, 0, now[10] - 1)
+        pwm.set_pwm(11, 0, now[11] + 1)
+        now[8] -= 1
+        now[9] += 1
+        now[10] -= 1
+        now[11] += 1
+        sleep(0.1)
