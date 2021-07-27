@@ -82,3 +82,6 @@ def set_sleep():
         now[10] -= 1
         now[11] += 1
         sleep(0.06)
+
+def forward():
+    moveServo(4, -50, 0)
